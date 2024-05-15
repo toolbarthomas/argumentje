@@ -1,0 +1,39 @@
+{
+  "name": "argumentje",
+  "version": "0.1.0",
+  "description": "Lightweight Node.js argv wrapper",
+  "main": "dist/index.js",
+  "files": [
+    "dist/",
+    "src/",
+    "build.mjs",
+    "tsconfig.json"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "node ./build.mjs",
+    "tsc": "tsc --noEmit",
+    "pretest": "npm run build",
+    "prepack": "npm run test",
+    "test": "node ./test.js -- --boolean --number=1 -e file.js --not=false --un=undefined --null=null"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toolbarthomas/argumentje.git"
+  },
+  "keywords": [
+    "argv",
+    "node.js"
+  ],
+  "author": "Thomas van der Velde <contact@toolbarthomas.net>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/toolbarthomas/argumentje/issues"
+  },
+  "homepage": "https://github.com/toolbarthomas/argumentje#readme",
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "esbuild": "^0.21.3",
+    "typescript": "^5.4.5"
+  }
+}
