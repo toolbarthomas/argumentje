@@ -1,3 +1,13 @@
+/**
+ * Lightweight wrapper for parsing the current command line arguments with
+ * support of the following variants:
+ *
+ * - Boolean
+ * - Null
+ * - Number
+ * - Flags
+ * - String
+ */
 export const parse = () => {
   const args = process.argv.slice(2).reverse();
 
