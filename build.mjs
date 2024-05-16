@@ -11,26 +11,42 @@ import esbuild from "esbuild";
     entryPoints: ["./src/index.ts"],
     external: [],
     keepNames: true,
-    platform: "node",
     metafile: false,
-    minify: false,
     outdir: "dist",
-    minify: true,
+    platform: "node",
   };
 
-  await esbuild.build({ ...defaults, format: "esm" });
-
-  await esbuild.build({
-    ...defaults,
-    format: "esm",
-    outExtension: { ".js": ".mjs" },
+  Promise.all([
+    esbuild.build({ ...defaults, format: "esm" }),
+    esbuild.build({
+      ...defaults,
+      format: "esm",
+      minify: true,
+      outExtension: { ".js": ".min.js" },
+    }),
+    esbuild.build({
+      ...defaults,
+      format: "esm",
+      outExtension: { ".js": ".mjs" },
+    }),
+    esbuild.build({
+      ...defaults,
+      format: "esm",
+      minify: true,
+      outExtension: { ".js": ".min.mjs" },
+    }),
+    esbuild.build({
+      ...defaults,
+      format: "cjs",
+      outExtension: { ".js": ".cjs" },
+    }),
+    esbuild.build({
+      ...defaults,
+      format: "cjs",
+      minify: true,
+      outExtension: { ".js": ".min.cjs" },
+    }),
+  ]).then(() => {
+    console.info(`Package compiled.`);
   });
-
-  await esbuild.build({
-    ...defaults,
-    format: "cjs",
-    outExtension: { ".js": ".cjs" },
-  });
-
-  console.info(`Package compiled.`);
 })();

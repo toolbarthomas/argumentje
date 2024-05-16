@@ -1,5 +1,5 @@
 {
-  "name": "argumentje",
+  "name": "@toolbarthomas/argumentje",
   "version": "0.1.0",
   "description": "Lightweight Node.js argv wrapper",
   "main": "dist/index.js",
@@ -7,10 +7,19 @@
     "dist/",
     "src/",
     "build.mjs",
+    "test.js",
     "tsconfig.json"
   ],
   "type": "module",
+  "exports": {
+    "node": "./dist/index.cjs",
+    "default": "./dist/index.js",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs",
+    "types": "./src/index.ts"
+  },
   "scripts": {
+    "prebuild": "npm run tsc",
     "build": "node ./build.mjs",
     "tsc": "tsc --noEmit",
     "pretest": "npm run build",
