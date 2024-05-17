@@ -32,5 +32,5 @@ const args = parse()
 ### `argumentje(args)`
 args: An array of CLI arguments, typically process.argv.
 
-License
+## License
 argumentje is licensed under the MIT License. See the LICENSE file for more details.
