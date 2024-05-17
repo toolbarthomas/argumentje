@@ -35,7 +35,7 @@
     "node.js"
   ],
   "author": "Thomas van der Velde <contact@toolbarthomas.net>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/toolbarthomas/argumentje/issues"
   },

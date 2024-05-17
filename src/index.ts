@@ -1,4 +1,4 @@
-import { Parser, Response } from "./module";
+import { Parser, Response } from "./types";
 
 /**
  * Lightweight wrapper for parsing the current command line arguments with

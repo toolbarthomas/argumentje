@@ -1,9 +1,7 @@
-import path, { extname, format } from "node:path";
-
 import esbuild from "esbuild";
 
 /**
- * Compiles the mandatory Testing Suite that should not fail during production.
+ * Compiles the required modules.
  */
 (async () => {
   const defaults = {
