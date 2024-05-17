@@ -1,13 +1,12 @@
 import { Parser, Response } from "./types";
 
 /**
- * Lightweight wrapper for parsing the current command line arguments with
- * support of the following variants:
+ * Simple Command Line Interface parser for Node.js
  *
  * - Boolean
  * - Null
  * - Number
- * - Flags
+ * - Flag
  * - String
  */
 export const parse: Parser = (value) => {
