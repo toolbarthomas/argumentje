@@ -21,10 +21,10 @@
   "scripts": {
     "prebuild": "npm run tsc",
     "build": "node ./build.mjs",
-    "tsc": "tsc --noEmit",
+    "tsc": "tsc",
     "pretest": "npm run build",
     "prepack": "npm run test",
-    "test": "node ./test.js -- --boolean --number=1 -e file.js --not=false --un=undefined --null=null"
+    "test": "node ./test.js -- --name example.txt --boolean --number=1 -e file.js --not=false --un=undefined --null=null"
   },
   "repository": {
     "type": "git",
@@ -41,8 +41,10 @@
   },
   "homepage": "https://github.com/toolbarthomas/argumentje#readme",
   "devDependencies": {
-    "@types/node": "^20.12.12",
     "esbuild": "^0.21.3",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^20.12.12"
   }
 }

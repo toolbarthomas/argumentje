@@ -1,4 +1,6 @@
-import { Parser, Response } from "./types";
+export type V = boolean | number | string | undefined | null;
+export type Response = { [key: string]: V };
+export type Parser = (value?: string[]) => Response;
 
 /**
  * Simple Command Line Interface parser for Node.js
@@ -16,19 +18,26 @@ export const parse: Parser = (value) => {
 
   try {
     for (let i = args.length; i--; ) {
-      let [current, ...rest] = args[i]
-        .replace("--", "")
-        .split("=")
-        .filter((e) => e);
+      let [current] = args[i].split("-").filter((e) => e);
 
-      if (current === undefined) {
+      const arg = current && current.split("=");
+
+      if (arg === undefined) {
+        continue;
+      }
+
+      const [name, ...rest] = arg;
+
+      if (name === undefined) {
         continue;
       }
 
       const [initial] = rest || [];
       let v: any = initial;
 
-      if (v !== undefined) {
+      if (!args[i].startsWith("-") && typeof current === "string") {
+        v = current;
+      } else if (v !== undefined) {
         if (v === "null") {
           v = null;
         } else if (String(v).toUpperCase() === "TRUE") {
@@ -44,7 +53,7 @@ export const parse: Parser = (value) => {
         current = current.slice(1);
       }
 
-      response[current] = v === undefined ? true : v;
+      response[name] = v === undefined ? true : v;
     }
   } catch (exception) {
     if (exception) {

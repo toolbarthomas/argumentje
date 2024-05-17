@@ -47,11 +47,11 @@ const test = (fn) => {
 
   const staticArgs = fn(["foo.js", "bar"]);
 
-  if (staticArgs.bar !== true) {
+  if (staticArgs.bar !== "bar") {
     throw Error(`Unable to parse static argument: bar`);
   }
 
-  if (staticArgs["foo.js"] !== true) {
+  if (staticArgs["foo.js"] !== "foo.js") {
     throw Error(`Unable to parse static argument: foo.js`);
   }
 
