@@ -2,11 +2,9 @@
 
 Argumentje is a Node.js Module designed to simplify the process of parsing command line interface (CLI) arguments and transforming them into a valid object. With argumentje, handling command line arguments becomes straightforward and efficient.
 
-Need more control over the actual CLI? There are several other packages available that you might consider depending on your specific requirements:
-
 ## Setup
 
-You can install argumentje via npm:
+You can install argumentje via `npm`:
 
 ```shell
 $ npm install argumentje
