@@ -7,7 +7,7 @@ Argumentje is a Node.js Module designed to simplify the process of parsing comma
 You can install argumentje via `npm`:
 
 ```shell
-$ npm install argumentje
+$ npm install @toolbarthomas/argumentje
 ```
 
 ## Usage
