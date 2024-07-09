@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 - 9-07-2024
+
+- Node: Minor devDependency upgrades.
+
 ## 0.1.3 - 18-06-2024
 
 - Node: Minor devDependency upgrades.
