@@ -18,42 +18,45 @@ export const parse = <T = Response>(value?: string[]) => {
 
   try {
     for (let i = args.length; i--; ) {
-      let [current] = args[i].split('-').filter((e) => e)
+      let current = args[i]
 
-      const arg = current && current.split('=')
-
-      if (arg === undefined) {
+      if (!current) {
         continue
       }
 
-      const [name, ...rest] = arg
+      const eqIndex = current.indexOf('=')
+      let name: string | undefined
+      let v: any
 
-      if (name === undefined) {
+      if (eqIndex >= 0) {
+        name = current.slice(0, eqIndex).replace(/^-+/, '')
+        v = current.slice(eqIndex + 1)
+      } else if (current.startsWith('-')) {
+        name = current.replace(/^-+/, '')
+        v = true
+      } else {
+        if (current && typeof current === 'string') {
+          response[current] = current
+        }
+
         continue
       }
 
-      const [initial] = rest || []
-      let v: any = initial
-
-      if (!args[i].startsWith('-') && typeof current === 'string') {
-        v = current
-      } else if (v !== undefined) {
+      if (typeof v === 'string') {
         if (v === 'null') {
           v = null
-        } else if (String(v).toUpperCase() === 'TRUE') {
+        } else if (v.toLowerCase() === 'true') {
           v = true
-        } else if (String(v).toUpperCase() === 'FALSE') {
+        } else if (v.toLowerCase() === 'false') {
           v = false
-        } else if (parseInt(v)) {
-          v = parseInt(v)
+        } else if (!isNaN(Number(v)) && v.trim() !== '') {
+          v = Number(v)
         }
       }
 
-      while (current.startsWith('-')) {
-        current = current.slice(1)
+      if (name) {
+        response[name as any] = v
       }
-
-      response[name as any] = v === undefined ? true : v
     }
   } catch (exception) {
     if (exception) {

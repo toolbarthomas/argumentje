@@ -1,6 +1,6 @@
 {
   "name": "@toolbarthomas/argumentje",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Simple Command Line Interface parser for Node.js",
   "main": "dist/index.js",
   "files": [
@@ -26,7 +26,7 @@
     "tsc": "tsc",
     "pretest": "npm run build",
     "prepack": "npm run test",
-    "test": "node ./test.js -- --name example.txt --boolean --number=1 -e file.js --not=false --un=undefined --null=null"
+    "test": "node ./test.js -- --name example.txt --boolean --number=1 -e file.js --not=false --un=undefined --null=null --uuid=1234-5678-9011"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,6 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@types/node": "^24.5.2"
+    "@types/node": "^24.6.0"
   }
 }
