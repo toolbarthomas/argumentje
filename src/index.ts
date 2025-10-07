@@ -64,7 +64,7 @@ export const parse = <T = Response>(value?: string[]) => {
     }
   }
 
-  return response
+  return response as T
 }
 
 export default {

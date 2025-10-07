@@ -14,9 +14,6 @@
     "plugins": [],
     "rootDir": "./src",
     "strict": true,
-    "types": [
-      "node",
-    ],
     "typeRoots": [
       "./src",
       "node_modules/@types",
