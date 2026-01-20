@@ -1,34 +1,23 @@
 # Argumentje
 
-Argumentje is a Node.js Module designed to simplify the process of parsing command line interface (CLI) arguments and transforming them into a valid object. With argumentje, handling command line arguments becomes straightforward and efficient.
+Argumentje is a lightweight  alternative for parsing [command line arguments](https://nodejs.org/api/process.html#processargv)
 
-## Setup
+## Getting started
 
-You can install argumentje via `npm`:
+You can install this package via NPM, we assume [Node.js](https://nodejs.org) is installed.
 
-```shell
+```bash
 $ npm install @toolbarthomas/argumentje
 ```
 
-## Usage
-Here's a simple example to demonstrate how to use Argumentje:
+## Setup
 
-```javascript
+```js
+  // $ node ./index.js --minify --path=foo --debug=false
 
-// $ node ./index.js --minify --path=foo --debug=false
+  import { parse } from '@toolbarthomas/argumentje'
 
-import { parse} from '@toolbarthomas/argumentje'
+  const args = parse()
 
-const args = parse()
-
-// Output: { debug: false, minify: true, path: "foo" }
-
+  // Output: { debug: false, minify: true, path: "foo" }
 ```
-
-## API
-
-### `argumentje(args)`
-args: An array of CLI arguments, typically process.argv.
-
-## License
-argumentje is licensed under the MIT License. See the LICENSE file for more details.
