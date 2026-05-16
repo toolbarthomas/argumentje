@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "declaration": true,
     "lib": [
       "ES2020",
@@ -8,8 +7,8 @@
     ],
     "target": "ES2020",
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "module": "System",
+    "moduleResolution": "bundler",
+    "module": "ESNext",
     "outDir": "./dist",
     "plugins": [],
     "rootDir": "./src",
