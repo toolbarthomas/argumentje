@@ -11,6 +11,14 @@ export type Parser = (value?: string[]) => Response
  * - Flag
  * - String
  */
+const coerce = (v: string): V => {
+  if (v === 'null') return null
+  if (v.toLowerCase() === 'true') return true
+  if (v.toLowerCase() === 'false') return false
+  if (!isNaN(Number(v)) && v.trim() !== '') return Number(v)
+  return v
+}
+
 export const parse = <T = Response>(value?: string[]) => {
   //@ts-ignore
   const args = value || process.argv.slice(2).reverse()
@@ -36,22 +44,14 @@ export const parse = <T = Response>(value?: string[]) => {
         v = true
       } else {
         if (current && typeof current === 'string') {
-          response[current] = current
+          response[current] = coerce(current)
         }
 
         continue
       }
 
       if (typeof v === 'string') {
-        if (v === 'null') {
-          v = null
-        } else if (v.toLowerCase() === 'true') {
-          v = true
-        } else if (v.toLowerCase() === 'false') {
-          v = false
-        } else if (!isNaN(Number(v)) && v.trim() !== '') {
-          v = Number(v)
-        }
+        v = coerce(v)
       }
 
       if (name) {
