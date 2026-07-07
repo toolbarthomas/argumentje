@@ -1,6 +1,6 @@
 {
   "name": "@toolbarthomas/argumentje",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Simple Command Line Interface parser for Node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,8 +44,8 @@
   },
   "homepage": "https://github.com/toolbarthomas/argumentje#readme",
   "devDependencies": {
-    "@types/node": "^25.8.0",
-    "esbuild": "^0.28.0",
+    "@types/node": "^26.1.0",
+    "esbuild": "^0.28.1",
     "typescript": "^6.0.3"
   }
 }
